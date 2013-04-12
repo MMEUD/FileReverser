@@ -11,11 +11,11 @@ Feature: Reverse Text File
     I want to create a file that has reversed the content of the text file
 
 Scenario: Reverse input text
-	Given I enter the file name {input file}
-	And the file contains {input text}
-	When I ehter the file name {output file} and press return
-	Then the file {output file} is created
-	And the contents of the file contains {output text}
+	- Given I enter the file name {input file}
+	- And the file contains {input text}
+	- When I ehter the file name {output file} and press return
+	- Then the file {output file} is created
+	- And the contents of the file contains {output text}
 
 	Example
 		| inputfile		| outputfile	|
