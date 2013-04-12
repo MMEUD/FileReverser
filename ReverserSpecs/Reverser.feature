@@ -4,8 +4,8 @@
     I want to create a file that has reversed the content of the text file
 
 Scenario: Reverse input text
-	Given I enter the file name "c:\github\texttoreverse.txt"
+	Given I enter the file name "texttoreverse.txt"
 	And the file contains "abcdef12345"
-	When I ehter the file name "c:\github\textreversed.txt" and press return
-	Then the file "c:\github\textreversed.txt" is created
+	When I ehter the file name "textreversed.txt" and press return
+	Then the file "textreversed.txt" is created
 	And the contents of the file contains "54321fedcba"

@@ -132,7 +132,7 @@ namespace ReverserTests
 
         private static string GetSetting()
         {
-            return Properties.Settings.Default.TextfileToReverse;
+            return Properties.Tests.Default.TextfileToReverse;
         }
     }
 }

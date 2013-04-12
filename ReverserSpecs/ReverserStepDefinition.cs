@@ -12,11 +12,12 @@ namespace ReverserSpecs
         [Given(@"I enter the file name ""(.*)""")]
         public void GivenIEnterAn(string inputFile)
         {
-            ScenarioContext.Current.Add("Input File", inputFile);
+            var inputFileName = GetFileName(inputFile);
+            ScenarioContext.Current.Add("Input File", inputFileName);
             var factory = new FileFactory<IFile>();
-            object[] arguments = { inputFile };
+            object[] arguments = { inputFileName };
             IFile textFile = factory.Create<TextFile>(arguments);
-            Assert.That(inputFile, Is.EqualTo(textFile.FileName));            
+            Assert.That(inputFileName, Is.EqualTo(textFile.FileName));            
         }
 
         [Given(@"the file contains ""(.*)""")]
@@ -31,7 +32,8 @@ namespace ReverserSpecs
         [When(@"I ehter the file name ""(.*)"" and press return")]
         public void WhenIEhterAnAndPressReturn(string outputFile)
         {
-            ScenarioContext.Current.Add("Output File", outputFile);
+            var outputFileName = GetFileName(outputFile);
+            ScenarioContext.Current.Add("Output File", outputFileName);
             var inputFile = ScenarioContext.Current.Get<string>("Input File");
             var factory = new FileFactory<IFile>();
             object[] arguments = { inputFile };
@@ -39,18 +41,18 @@ namespace ReverserSpecs
             IReverser reverser = new Reverser.Reverser();
             ITextFileReverser textFileReverser = new TextFileReverser(textFile, reverser);
             var outputText = textFileReverser.ReverseTextFileContents(textFile.FileName);
-            var reversed = textFile.WriteFileContents(outputFile, outputText);
-            Assert.That(reversed, Is.True);
-            ScenarioContext.Current.Add("outoutText", outputText);
+            var reversed = textFile.WriteFileContents(outputFileName, outputText);
+            Assert.That(reversed, Is.True);            
         }
 
         [Then(@"the file ""(.*)"" is created")]
         public void ThenTheIsCreated(string outputFile)
         {
+            var outputFileName = GetFileName(outputFile);
             var factory = new FileFactory<IFile>();
-            object[] arguments = { outputFile };
+            object[] arguments = { outputFileName };
             IFile textFile = factory.Create<TextFile>(arguments);
-            Assert.That(outputFile, Is.EqualTo(textFile.FileName));   
+            Assert.That(outputFileName, Is.EqualTo(textFile.FileName));   
         }
 
         [Then(@"the contents of the file contains ""(.*)""")]
@@ -66,6 +68,11 @@ namespace ReverserSpecs
             var fileFactory = new FileFactory<IFile>();
             IFile textFile = fileFactory.Create<TextFile>(fileName);
             return textFile;
-        }        
+        }
+
+        private static string GetFileName(string fileName)
+        {
+            return Properties.Specs.Default.TextFileLocation + @"\" + fileName;
+        }
     }
 }
