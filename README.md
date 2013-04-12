@@ -6,17 +6,16 @@ Basic Code Exercise: Text File Reverser Console Application
 Please provide in a text file a section of self crafted code (in a language of your choice) with associated unit tests that demonstrates a test driven approach to implement the feature provided (see features folder):
 
 Feature: Reverse Text File
+	In order to read the contents of a text file that contains text that is back-to-front
+    As a reader
+    I want to create a file that has reversed the content of the text file
 
-	Scenario Outline: Output reversed text to a file
-
-		- Given I have a command line window open
-		- And I type in a <inputfile> of saved text file that contains the <inputtext>
-		- And I type in a <outputfile>
-		- When press return
-		- Then the command line reads “the input file: <inputfile> has been reversed 
-		  and output to the file: <output filename> with the reversed content: <outputtext>"
-		- And the file <output filename> has been created
-		- And the contents of the file contains the reverse of the input as: <output text>
+Scenario: Reverse input text
+	Given I enter the file name {input file}
+	And the file contains {input text}
+	When I ehter the file name {output file} and press return
+	Then the file {output file} is created
+	And the contents of the file contains {output text}
 
 	Example
 		| inputfile		| outputfile	|
