@@ -9,7 +9,7 @@ namespace ReverserSpecs
     [Binding]
     public class StepDefinitions
     {
-        [Given(@"I enter an ""(.*)""")]
+        [Given(@"I enter the file name ""(.*)""")]
         public void GivenIEnterAn(string inputFile)
         {
             ScenarioContext.Current.Add("Input File", inputFile);
@@ -19,7 +19,7 @@ namespace ReverserSpecs
             Assert.That(inputFile, Is.EqualTo(textFile.FileName));            
         }
 
-        [Given(@"the file contains the ""(.*)""")]
+        [Given(@"the file contains ""(.*)""")]
         public void GivenTheFileContainsThe(string inputText)
         {            
             ScenarioContext.Current.Add("Input Text", inputText);
@@ -28,7 +28,7 @@ namespace ReverserSpecs
             Assert.That(inputText, Is.EqualTo(textFile.GetFileContents(fileName)));
         }
 
-        [When(@"I ehter an ""(.*)"" and press return")]
+        [When(@"I ehter the file name ""(.*)"" and press return")]
         public void WhenIEhterAnAndPressReturn(string outputFile)
         {
             ScenarioContext.Current.Add("Output File", outputFile);
@@ -44,7 +44,7 @@ namespace ReverserSpecs
             ScenarioContext.Current.Add("outoutText", outputText);
         }
 
-        [Then(@"the ""(.*)"" is created")]
+        [Then(@"the file ""(.*)"" is created")]
         public void ThenTheIsCreated(string outputFile)
         {
             var factory = new FileFactory<IFile>();
@@ -53,7 +53,7 @@ namespace ReverserSpecs
             Assert.That(outputFile, Is.EqualTo(textFile.FileName));   
         }
 
-        [Then(@"the contents of the file contains the reverse of the input as ""(.*)""")]
+        [Then(@"the contents of the file contains ""(.*)""")]
         public void ThenTheContentsOfTheFileContainsTheReverseOfTheInputAs(string outputText)
         {
             var outputFile = ScenarioContext.Current.Get<string>("Output File");

@@ -1,11 +1,11 @@
 ﻿Feature: Reverse Text File
-	In order to more easily read the contents of a text file in a mirror
+	In order to read the contents of a text file that contains text that is back-to-front
     As a reader
-    I want to create a file that has reversed the content of a text file
+    I want to create a file that has reversed the content of the text file
 
 Scenario: Reverse input text
-	Given I enter an "c:\github\texttoreverse.txt"
-	And the file contains the "abcdef12345"
-	When I ehter an "c:\github\textreversed.txt" and press return
-	Then the "c:\github\textreversed.txt" is created
-	And the contents of the file contains the reverse of the input as "54321fedcba"
+	Given I enter the file name "c:\github\texttoreverse.txt"
+	And the file contains "abcdef12345"
+	When I ehter the file name "c:\github\textreversed.txt" and press return
+	Then the file "c:\github\textreversed.txt" is created
+	And the contents of the file contains "54321fedcba"

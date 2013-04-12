@@ -32,8 +32,9 @@ namespace ReverserSpecs
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Reverse Text File", "In order to more easily read the contents of a text file in a mirror\r\n  As a read" +
-                    "er\r\n  I want to create a file that has reversed the content of a text file", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Reverse Text File", "In order to read the contents of a text file that contains text that is back-to-f" +
+                    "ront\r\n  As a reader\r\n  I want to create a file that has reversed the content of " +
+                    "the text file", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -73,15 +74,15 @@ namespace ReverserSpecs
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
- testRunner.Given("I enter an \"c:\\github\\texttoreverse.txt\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I enter the file name \"c:\\github\\texttoreverse.txt\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
- testRunner.And("the file contains the \"abcdef12345\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the file contains \"abcdef12345\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
- testRunner.When("I ehter an \"c:\\github\\textreversed.txt\" and press return", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I ehter the file name \"c:\\github\\textreversed.txt\" and press return", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 10
- testRunner.Then("the \"c:\\github\\textreversed.txt\" is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the file \"c:\\github\\textreversed.txt\" is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 11
- testRunner.And("the contents of the file contains the reverse of the input as \"54321fedcba\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the contents of the file contains \"54321fedcba\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
