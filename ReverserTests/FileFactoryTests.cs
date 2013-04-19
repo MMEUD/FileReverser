@@ -2,7 +2,7 @@
 using FileManager;
 using NUnit.Framework;
 
-namespace ReverserTests
+namespace FileReverserTests
 {
     [TestFixture]
     public class FileFactoryTests

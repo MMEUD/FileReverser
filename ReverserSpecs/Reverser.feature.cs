@@ -78,7 +78,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 8
  testRunner.And("the file contains \"abcdef12345\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
- testRunner.When("I ehter the file name \"textreversed.txt\" and press return", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I enter the file name \"textreversed.txt\" and press return", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 10
  testRunner.Then("the file \"textreversed.txt\" is created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 11

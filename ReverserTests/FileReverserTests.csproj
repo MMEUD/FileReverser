@@ -8,10 +8,11 @@
     <ProjectGuid>{304EED0C-A5F7-4E87-8093-A4644273AB41}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ReverserTests</RootNamespace>
-    <AssemblyName>ReverserTests</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <RootNamespace>FileReverserTests</RootNamespace>
+    <AssemblyName>FileReverserTests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +31,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Moq">
@@ -41,6 +44,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -67,6 +71,10 @@
     <ProjectReference Include="..\FileReverser\FileReverser.csproj">
       <Project>{631FB593-EBE9-4C4A-958B-0EA68496F9B8}</Project>
       <Name>FileReverser</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReverserSite\ReverserSite.csproj">
+      <Project>{ef44843a-7c97-4e45-b06e-bce104fd18ef}</Project>
+      <Name>ReverserSite</Name>
     </ProjectReference>
     <ProjectReference Include="..\Reverser\Reverser.csproj">
       <Project>{6AE264CE-310F-475C-BE7F-9D43E1CFA9F7}</Project>

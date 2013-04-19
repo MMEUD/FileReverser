@@ -3,7 +3,7 @@ using System.IO;
 using FileManager;
 using NUnit.Framework;
 
-namespace ReverserTests
+namespace FileReverserTests
 {
     [TestFixture]
     public class TextFileTests
@@ -30,7 +30,7 @@ namespace ReverserTests
 
         [Test]
         [Category("Integration Tests")]
-        public void FileExistsEmptyStringThrowsInvalidArgumentExceptionException()
+        public void FileExistsEmptyStringThrowsInvalidArgumentException()
         {
             IFile textFile = CreateTextFile("text.file");
             Assert.Throws(Is.TypeOf<ArgumentException>().
@@ -40,7 +40,7 @@ namespace ReverserTests
 
         [Test]
         [Category("Integration Tests")]
-        public void FileExistsNullStringFileThrowsInvalidArgumentExceptionException()
+        public void FileExistsNullStringFileThrowsInvalidArgumentException()
         {
             IFile textFile = CreateTextFile("text.file");
             Assert.Throws(Is.TypeOf<ArgumentException>().

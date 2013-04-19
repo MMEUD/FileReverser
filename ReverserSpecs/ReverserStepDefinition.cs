@@ -29,8 +29,8 @@ namespace ReverserSpecs
             Assert.That(inputText, Is.EqualTo(textFile.GetFileContents(fileName)));
         }
 
-        [When(@"I ehter the file name ""(.*)"" and press return")]
-        public void WhenIEhterAnAndPressReturn(string outputFile)
+        [When(@"I enter the file name ""(.*)"" and press return")]
+        public void WhenIEnterAnAndPressReturn(string outputFile)
         {
             var outputFileName = GetFileName(outputFile);
             ScenarioContext.Current.Add("Output File", outputFileName);

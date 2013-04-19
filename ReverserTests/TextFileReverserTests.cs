@@ -6,7 +6,7 @@ using Moq;
 using NUnit.Framework;
 
 
-namespace ReverserTests
+namespace FileReverserTests
 {
     [TestFixture]
     public class TextFileReverserTests

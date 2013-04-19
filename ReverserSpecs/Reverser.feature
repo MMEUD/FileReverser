@@ -6,6 +6,6 @@
 Scenario: Reverse input text
 	Given I enter the file name "texttoreverse.txt"
 	And the file contains "abcdef12345"
-	When I ehter the file name "textreversed.txt" and press return
+	When I enter the file name "textreversed.txt" and press return
 	Then the file "textreversed.txt" is created
 	And the contents of the file contains "54321fedcba"

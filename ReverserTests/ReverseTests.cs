@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using Reverser;
 
-namespace ReverserTests
+namespace FileReverserTests
 {
     [TestFixture]
     public class ReverseTests
@@ -17,12 +17,13 @@ namespace ReverserTests
         }
 
         [Test]
+        [TestCase("a")]
+        [TestCase("1")]
         [Category("Unit Tests")]
-        public void ReverseValidOneCharacterTextReturnsValidOneCharacterText()
+        public void ReverseValidOneCharacterTextReturnsValidOneCharacterText(string inputText)
         {
-            const string expected = "a";
             IReverser reverser = new Reverser.Reverser();
-            Assert.That(expected, Is.EqualTo(reverser.Reverse("a")).IgnoreCase);
+            Assert.That(inputText, Is.EqualTo(reverser.Reverse(inputText)).IgnoreCase);
         }
 
         [Test]
