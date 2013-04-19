@@ -36,8 +36,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Moq">
-      <HintPath>..\lib\Moq.dll</HintPath>
+    <Reference Include="Moq, Version=4.0.10827.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework, Version=2.6.2.12296, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
@@ -72,10 +73,6 @@
     <ProjectReference Include="..\FileReverser\FileReverser.csproj">
       <Project>{631FB593-EBE9-4C4A-958B-0EA68496F9B8}</Project>
       <Name>FileReverser</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ReverserSite\ReverserSite.csproj">
-      <Project>{ef44843a-7c97-4e45-b06e-bce104fd18ef}</Project>
-      <Name>ReverserSite</Name>
     </ProjectReference>
     <ProjectReference Include="..\Reverser\Reverser.csproj">
       <Project>{6AE264CE-310F-475C-BE7F-9D43E1CFA9F7}</Project>
