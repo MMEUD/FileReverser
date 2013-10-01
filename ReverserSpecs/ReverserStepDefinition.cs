@@ -10,7 +10,7 @@ namespace ReverserSpecs
     public class StepDefinitions
     {
         [Given(@"I enter the file name ""(.*)""")]
-        public void GivenIEnterAn(string inputFile)
+        public void GivenIEnterTheFileName(string inputFile)
         {
             var inputFileName = GetFileName(inputFile);
             ScenarioContext.Current.Add("Input File", inputFileName);
@@ -19,7 +19,7 @@ namespace ReverserSpecs
         }
 
         [Given(@"the file contains ""(.*)""")]
-        public void GivenTheFileContainsThe(string inputText)
+        public void GivenTheFileContainsTheInputText(string inputText)
         {            
             ScenarioContext.Current.Add("Input Text", inputText);
             var fileName = ScenarioContext.Current.Get<string>("Input File");
@@ -28,7 +28,7 @@ namespace ReverserSpecs
         }
 
         [When(@"I enter the file name ""(.*)"" and press return")]
-        public void WhenIEnterAnAndPressReturn(string outputFile)
+        public void WhenIEnterAndPressReturn(string outputFile)
         {
             var outputFileName = GetFileName(outputFile);
             ScenarioContext.Current.Add("Output File", outputFileName);
@@ -40,7 +40,7 @@ namespace ReverserSpecs
         }
 
         [Then(@"the file ""(.*)"" is created")]
-        public void ThenTheIsCreated(string outputFile)
+        public void ThenTheFileIsCreated(string outputFile)
         {
             var outputFileName = GetFileName(outputFile);
             IFile textFile = CreateTextFile(outputFileName);
@@ -48,7 +48,7 @@ namespace ReverserSpecs
         }
 
         [Then(@"the contents of the file contains ""(.*)""")]
-        public void ThenTheContentsOfTheFileContainsTheReverseOfTheInputAs(string outputText)
+        public void ThenTheContentsOfTheFileContainsTheReverseOfTheInput(string outputText)
         {
             var outputFile = ScenarioContext.Current.Get<string>("Output File");
             IFile textFile = CreateTextFile(outputFile);
