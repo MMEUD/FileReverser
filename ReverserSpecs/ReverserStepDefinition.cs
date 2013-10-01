@@ -14,9 +14,7 @@ namespace ReverserSpecs
         {
             var inputFileName = GetFileName(inputFile);
             ScenarioContext.Current.Add("Input File", inputFileName);
-            var factory = new FileFactory<IFile>();
-            object[] arguments = { inputFileName };
-            IFile textFile = factory.Create<TextFile>(arguments);
+            IFile textFile = CreateTextFile(inputFileName);
             Assert.That(inputFileName, Is.EqualTo(textFile.FileName));            
         }
 
@@ -35,12 +33,8 @@ namespace ReverserSpecs
             var outputFileName = GetFileName(outputFile);
             ScenarioContext.Current.Add("Output File", outputFileName);
             var inputFile = ScenarioContext.Current.Get<string>("Input File");
-            var factory = new FileFactory<IFile>();
-            object[] arguments = { inputFile };
-            IFile textFile = factory.Create<TextFile>(arguments);
-            IReverser reverser = new Reverser.Reverser();
-            ITextFileReverser textFileReverser = new TextFileReverser(textFile, reverser);
-            var outputText = textFileReverser.ReverseTextFileContents(textFile.FileName);
+            IFile textFile = CreateTextFile(inputFile);
+            var outputText = CreateTextFileReverser(textFile);
             var reversed = textFile.WriteFileContents(outputFileName, outputText);
             Assert.That(reversed, Is.True);            
         }
@@ -49,9 +43,7 @@ namespace ReverserSpecs
         public void ThenTheIsCreated(string outputFile)
         {
             var outputFileName = GetFileName(outputFile);
-            var factory = new FileFactory<IFile>();
-            object[] arguments = { outputFileName };
-            IFile textFile = factory.Create<TextFile>(arguments);
+            IFile textFile = CreateTextFile(outputFileName);
             Assert.That(outputFileName, Is.EqualTo(textFile.FileName));   
         }
 
@@ -68,6 +60,14 @@ namespace ReverserSpecs
             var fileFactory = new FileFactory<IFile>();
             IFile textFile = fileFactory.Create<TextFile>(fileName);
             return textFile;
+        }
+
+        private static string CreateTextFileReverser(IFile textFile)
+        {
+            IReverser reverser = new Reverser.Reverser();
+            ITextFileReverser textFileReverser = new TextFileReverser(textFile, reverser);
+            var outputText = textFileReverser.ReverseTextFileContents(textFile.FileName);
+            return outputText;
         }
 
         private static string GetFileName(string fileName)
