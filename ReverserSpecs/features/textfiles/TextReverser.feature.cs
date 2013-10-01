@@ -26,7 +26,7 @@ namespace ReverserSpecs.Features.TextFiles
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "Reverser.feature"
+#line 1 "TextReverser.feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]
